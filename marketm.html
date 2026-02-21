@@ -1,0 +1,134 @@
+import React, { useState } from 'react';
+import { Sparkles, Home, Shirt, Heart, User, TrendingUp, CloudSun, DollarSign } from 'lucide-react';
+
+const MarketMindApp = () => {
+  const [activeTab, setActiveTab] = useState('home');
+
+  // --- Theme Constants ---
+  const glassStyle = "bg-white/40 backdrop-blur-md border border-white/20 shadow-sm";
+  const primaryGradient = "bg-gradient-to-r from-[#E4B4B4] to-[#E6E6FA]";
+
+  return (
+    <div className="min-h-screen bg-[#F5F5DC] font-sans text-gray-800 pb-24">
+      
+      {/* 1. TOP NAVIGATION / HEADER */}
+      <header className="p-6 flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-serif font-bold tracking-tight text-[#8B7E74]">MarketMind</h1>
+          <p className="text-xs uppercase tracking-widest text-gray-500">AI Fashion Intelligence</p>
+        </div>
+        <div className={`${glassStyle} p-2 rounded-full`}>
+          <User size={20} className="text-[#8B7E74]" />
+        </div>
+      </header>
+
+      {/* 2. DASHBOARD GREETING & CONTEXT */}
+      <section className="px-6 mb-8">
+        <div className="flex justify-between items-end">
+          <div>
+            <h2 className="text-3xl font-serif">Hi, Julianne</h2>
+            <div className="flex items-center mt-1 text-gray-600 space-x-2">
+              <CloudSun size={16} />
+              <span className="text-sm">Sunny, 22°C • Milan, IT</span>
+            </div>
+          </div>
+          <div className="text-right">
+            <span className="text-[10px] font-bold text-rose-400 uppercase">Budget Range</span>
+            <p className="text-sm font-medium">$500 - $1,200</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. MAIN AI ACTION (The Pulse) */}
+      <section className="px-6 mb-10">
+        <button className={`${primaryGradient} w-full py-8 rounded-[32px] shadow-lg shadow-rose-200 flex flex-col items-center justify-center transition-transform active:scale-95`}>
+          <div className="bg-white/20 p-3 rounded-full mb-3">
+            <Sparkles className="text-white" size={32} />
+          </div>
+          <span className="text-white font-bold text-xl tracking-wide">Generate AI Outfit</span>
+          <span className="text-white/80 text-xs mt-1">Based on Real-time Market Trends</span>
+        </button>
+      </section>
+
+      {/* 4. MARKET TRENDS CAROUSEL */}
+      <section className="mb-10">
+        <div className="px-6 flex justify-between items-center mb-4">
+          <h3 className="font-serif text-lg">Trending Now</h3>
+          <TrendingUp size={18} className="text-rose-300" />
+        </div>
+        <div className="flex space-x-4 overflow-x-auto px-6 no-scrollbar">
+          {['Quiet Luxury', 'Digital Lavender', 'Eco-Linen'].map((trend, i) => (
+            <div key={i} className={`${glassStyle} min-w-[140px] h-48 rounded-premium p-4 flex flex-col justify-end`}>
+              <span className="text-xs font-bold text-rose-400">#0{i+1}</span>
+              <p className="font-medium text-sm">{trend}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. RECOMMENDED OUTFITS (Card Layout) */}
+      <section className="px-6">
+        <h3 className="font-serif text-lg mb-4">Market Recommendations</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <div className={`${glassStyle} rounded-premium overflow-hidden`}>
+            <div className="h-40 bg-[#E6E6FA]/50 flex items-center justify-center">
+              <Shirt size={48} className="text-white/50" />
+            </div>
+            <div className="p-3">
+              <p className="text-xs font-bold">Silk Blazer Set</p>
+              <div className="flex justify-between items-center mt-2">
+                <span className="text-xs text-gray-500">$340.00</span>
+                <Heart size={14} className="text-rose-300" />
+              </div>
+            </div>
+          </div>
+          
+          <div className={`${glassStyle} rounded-premium overflow-hidden`}>
+            <div className="h-40 bg-[#E4B4B4]/50 flex items-center justify-center">
+              <Shirt size={48} className="text-white/50" />
+            </div>
+            <div className="p-3">
+              <p className="text-xs font-bold">Pleated Midi</p>
+              <div className="flex justify-between items-center mt-2">
+                <span className="text-xs text-gray-500">$185.00</span>
+                <Heart size={14} className="text-rose-300" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. SUSTAINABLE TIP (Insight Layer) */}
+      <section className="p-6">
+        <div className="bg-[#8B7E74] text-white p-6 rounded-[24px] flex items-center space-x-4">
+          <div className="bg-white/20 p-2 rounded-full">
+            <DollarSign size={20} />
+          </div>
+          <div>
+            <p className="text-xs opacity-80 uppercase font-bold tracking-tighter">Market Mind Insight</p>
+            <p className="text-sm">Resale value for vintage blazers is up 14% this month. Invest wisely.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. BOTTOM NAVIGATION BAR */}
+      <nav className="fixed bottom-6 left-6 right-6 h-20 bg-white/60 backdrop-blur-xl border border-white/40 rounded-[30px] flex justify-around items-center px-4 shadow-xl">
+        <button onClick={() => setActiveTab('home')} className={`p-3 rounded-full ${activeTab === 'home' ? 'text-rose-400 bg-rose-50' : 'text-gray-400'}`}>
+          <Home size={24} />
+        </button>
+        <button onClick={() => setActiveTab('gen')} className={`p-3 rounded-full ${activeTab === 'gen' ? 'text-rose-400 bg-rose-50' : 'text-gray-400'}`}>
+          <Sparkles size={24} />
+        </button>
+        <button onClick={() => setActiveTab('wardrobe')} className={`p-3 rounded-full ${activeTab === 'wardrobe' ? 'text-rose-400 bg-rose-50' : 'text-gray-400'}`}>
+          <Shirt size={24} />
+        </button>
+        <button onClick={() => setActiveTab('wish')} className={`p-3 rounded-full ${activeTab === 'wish' ? 'text-rose-400 bg-rose-50' : 'text-gray-400'}`}>
+          <Heart size={24} />
+        </button>
+      </nav>
+
+    </div>
+  );
+};
+
+export default MarketMindApp;

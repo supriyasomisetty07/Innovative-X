@@ -1,1 +1,20 @@
-This is a solid vision for a modern SaaS product. Using Groq for the backend is a smart move—its LPU (Language Processing Unit) architecture offers the speed necessary for "real-time" market intelligence, while Firebase handles the heavy lifting of scaling and security.Since you are deploying this as an HTML-based frontend (likely a Single Page Application), here is the structured roadmap and the specialized "Antigravity" prompt to kickstart your development.1. Project ArchitectureTo keep things clean, we will use a Modular Frontend approach:Frontend: HTML5, Tailwind CSS (for rapid styling), and Vanilla JS or Vue.js.AI Engine: Groq API (using the llama-3 models for high-speed reasoning).Backend/Auth: Firebase (Authentication for logins, Firestore for storing market insights, and Hosting).Data Flow: User Uploads Data $\rightarrow$ Firebase Stores/Triggers $\rightarrow$ Groq Processes $\rightarrow$ Frontend Displays Insights.2. Phase-by-Phase Execution PlanPhaseFocusKey TasksPhase 1InfrastructureSetup Firebase Project; Configure Auth providers; Initialize Groq API keys.Phase 2Core UIBuild Dashboard, Data Upload modal, and "Insight Cards" in HTML/Tailwind.Phase 3AI IntegrationCreate the JS logic to send market data to Groq and parse the JSON response.Phase 4Data PersistenceSave generated strategies to Firestore so users can see their history.Phase 5DeploymentDeploy to Firebase Hosting or Vercel.3. The "Antigravity" PromptCopy and paste this prompt into your preferred AI code generator (like an LLM with coding capabilities) to generate the foundational files.Prompt:"Act as a Senior Full-Stack Developer. I need the initial boilerplate for 'MarketMind', a Sales Intelligence Platform.Technical Requirements:Frontend: Single-page HTML5 file using Tailwind CSS via CDN.Authentication: Include Firebase v9+ integration logic for Google Login.AI Backend: Create a JavaScript function generateMarketInsight(data) that calls the Groq API (Llama-3 model). It should take market trends as input and return a structured JSON response with 'Strategic Recommendations' and 'Risk Assessment'.UI Components:A sleek, dark-themed Sidebar.A 'Market Pulse' dashboard area with a text-area for data input.A loading state (spinner) for when Groq is processing.Security: Remind me where to place environment variables so I don't leak my Groq API key in the frontend code.Please provide the index.html and a script.js file that connects these pieces."4. Key Implementation TipsProtecting your API Key: Since you are using a pure HTML/JS frontend, do not hardcode your Groq API key in the script tags. In a production environment, you should use Firebase Cloud Functions as a middleman to call Groq. This keeps your key hidden from the browser's "Inspect Element" tool.Prompt Engineering for Groq: When sending data to Groq, use a System Prompt like:"You are a world-class CMO. Analyze the following CSV data and provide three high-impact growth levers."
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
+
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/ad018da7-b6f5-49a6-9acc-092f51d8b4c2
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
